@@ -119,7 +119,7 @@ export async function POST(req: NextRequest) {
       logo: s.stream_icon,
       category: catName(liveCats, s.category_id),
       type: "live",
-      stream: `${server}/live/${encodeURIComponent(username)}/${encodeURIComponent(password)}/${s.stream_id}.m3u8`,
+      stream: `/api/stream?url=${encodeURIComponent(`${server}/live/${encodeURIComponent(username)}/${encodeURIComponent(password)}/${s.stream_id}.m3u8`)}`,
     }));
 
     const movies = (vodStreams || []).map((s: any) => ({
@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
       category: catName(vodCats, s.category_id),
       type: "movie",
       extension: s.container_extension,
-      stream: `${server}/movie/${encodeURIComponent(username)}/${encodeURIComponent(password)}/${s.stream_id}.${extForStream(s.container_extension, "mp4")}`,
+      stream: `/api/stream?url=${encodeURIComponent(`${server}/movie/${encodeURIComponent(username)}/${encodeURIComponent(password)}/${s.stream_id}.${extForStream(s.container_extension, "mp4")}`)}`,
     }));
 
     const series = (seriesStreams || []).map((s: any) => ({
