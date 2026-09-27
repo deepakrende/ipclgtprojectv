@@ -1,0 +1,7 @@
+{
+  "name":"global-iptv-player",
+  "private":true,
+  "scripts":{"dev":"next dev","build":"next build","start":"next start"},
+  "dependencies":{"hls.js":"^1.5.17","next":"latest","react":"latest","react-dom":"latest"},
+  "devDependencies":{"typescript":"latest","@types/node":"latest","@types/react":"latest","@types/react-dom":"latest"}
+}
